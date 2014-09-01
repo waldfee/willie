@@ -34,7 +34,7 @@ def weather(bot, trigger):
     windspeed = data["wind"]["speed"]
     condition = data["weather"][0]["main"]
 
-    return bot.say(u'%s, %s: %s, %s°, %skmh' % (name, country, condition, temp, windspeed))
+    bot.say(u'%s, %s: %s, %s°, %skmh' % (name, country, condition, temp, windspeed))
 
 
 @commands('of')
@@ -67,10 +67,9 @@ def forecast(bot, trigger):
         weekday = datetime.fromtimestamp(item["dt"]).weekday()
         minTemp = item["temp"]["min"]
         maxTemp = item["temp"]["max"]
-        conditions = item["weather"]["main"]
+        conditions = item["weather"][0]["main"]
         windSpeed = item["speed"]
 
         bot.say(u'%s, %s on %s: min: %s°, max: %s°, %s, %skmh' % (
             name, country, day[weekday], minTemp, maxTemp, conditions, windSpeed))
 
-    return
