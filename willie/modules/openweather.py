@@ -64,7 +64,7 @@ def forecast(bot, trigger):
     day = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
     for item in data["list"]:
-        weekday = datetime.datetime.fromtimestamp(item["dt"]).weekday()
+        weekday = datetime.fromtimestamp(item["dt"]).weekday()
         minTemp = item["temp"]["min"]
         maxTemp = item["temp"]["max"]
         conditions = item["weather"]["main"]
